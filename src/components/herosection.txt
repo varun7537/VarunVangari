@@ -1,0 +1,401 @@
+import React, { useState, useEffect } from 'react';
+import { FaGithub, FaLinkedin, FaTwitter, FaArrowDown } from 'react-icons/fa';
+
+const HeroSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const socialLinks = [
+    { icon: FaGithub, url: '#', label: 'GitHub' },
+    { icon: FaLinkedin, url: '#', label: 'LinkedIn' },
+    { icon: FaTwitter, url: '#', label: 'Twitter' },
+  ];
+
+  return (
+    <section className="relative min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 
+                        text-white overflow-hidden px-4">
+      {/* Background Animation */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute w-96 h-96 -top-10 -left-10 bg-emerald-500/20 rounded-full 
+                        blur-3xl animate-pulse"></div>
+        <div className="absolute w-96 h-96 -bottom-10 -right-10 bg-teal-500/20 rounded-full 
+                        blur-3xl animate-pulse delay-1000"></div>
+      </div>
+
+      {/* Main Content */}
+      <div className={`relative z-10 max-w-6xl mx-auto min-h-screen flex flex-col 
+                      justify-center items-center text-center transition-all duration-1000 
+                      ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        
+        {/* Profile Image */}
+        <div className="relative mb-8 group">
+          <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-teal-500 
+                         rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity"></div>
+          <img 
+            src="/api/placeholder/150/150"
+            alt="Profile"
+            className="relative w-32 h-32 rounded-full border-4 border-white/10 
+                     shadow-lg object-cover transform transition-transform duration-500 
+                     group-hover:scale-105"
+          />
+        </div>
+
+        {/* Main Text */}
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+          <span className="bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent">
+            Welcome to My Portfolio
+          </span>
+        </h1>
+        
+        <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-8 leading-relaxed">
+          I'm a passionate Web Developer specializing in creating beautiful, responsive websites 
+          using modern technologies like React, TailwindCSS, and Next.js.
+        </p>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 mb-12">
+          <button className="px-8 py-3 bg-gradient-to-r from-emerald-400 to-teal-500 
+                           rounded-lg font-semibold text-white shadow-lg 
+                           hover:shadow-emerald-500/25 transform hover:-translate-y-1 
+                           transition-all duration-300">
+            View Projects
+          </button>
+          <button className="px-8 py-3 bg-white/10 rounded-lg font-semibold 
+                           backdrop-blur-sm hover:bg-white/20 transform hover:-translate-y-1 
+                           transition-all duration-300 border border-white/10">
+            Contact Me
+          </button>
+        </div>
+
+        {/* Social Links */}
+        <div className="flex gap-6 mb-12">
+          {socialLinks.map((social, index) => (
+            <a
+              key={index}
+              href={social.url}
+              className="text-gray-400 hover:text-white transform hover:-translate-y-1 
+                        transition-all duration-300"
+              aria-label={social.label}
+            >
+              <social.icon size={24} />
+            </a>
+          ))}
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 
+                        animate-bounce text-gray-400">
+          <FaArrowDown size={24} />
+        </div>
+      </div>
+
+      {/* Tech Stack */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t 
+                      from-slate-900 to-transparent flex items-end justify-center pb-4">
+        <div className="flex gap-8 text-gray-400 text-sm">
+          <span>React</span>
+          <span>•</span>
+          <span>TailwindCSS</span>
+          <span>•</span>
+          <span>Next.js</span>
+          <span>•</span>
+          <span>TypeScript</span>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
+
+
+
+
+import React, { useState, useEffect } from 'react';
+import { FaGithub, FaLinkedin, FaTwitter, FaArrowDown, FaCode, 
+         FaMobileAlt, FaServer, FaPalette } from 'react-icons/fa';
+
+const HeroSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isTyping, setIsTyping] = useState(true);
+
+  useEffect(() => {
+    setIsVisible(true);
+    const typingTimeout = setTimeout(() => setIsTyping(false), 3000);
+    return () => clearTimeout(typingTimeout);
+  }, []);
+
+  const handleMouseMove = (e) => {
+    const { clientX, clientY } = e;
+    const moveX = (clientX - window.innerWidth / 2) / -50;
+    const moveY = (clientY - window.innerHeight / 2) / -50;
+    setMousePosition({ x: moveX, y: moveY });
+  };
+
+  const socialLinks = [
+    { icon: FaGithub, url: '#', label: 'GitHub', color: 'hover:text-purple-400' },
+    { icon: FaLinkedin, url: '#', label: 'LinkedIn', color: 'hover:text-blue-400' },
+    { icon: FaTwitter, url: '#', label: 'Twitter', color: 'hover:text-sky-400' },
+  ];
+
+  const services = [
+    { icon: FaCode, title: 'Web Development', color: 'from-pink-500 to-rose-500' },
+    { icon: FaMobileAlt, title: 'Mobile Apps', color: 'from-purple-500 to-indigo-500' },
+    { icon: FaServer, title: 'Backend', color: 'from-blue-500 to-cyan-500' },
+    { icon: FaPalette, title: 'UI/UX Design', color: 'from-green-500 to-emerald-500' },
+  ];
+
+  const typewriterText = "Welcome to My Portfolio";
+
+  return (
+    <section 
+      className="relative min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 
+                 text-white overflow-hidden px-4"
+      onMouseMove={handleMouseMove}
+    >
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute w-full h-full">
+          {[...Array(5)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full mix-blend-screen filter blur-xl opacity-30 animate-blob"
+              style={{
+                backgroundColor: `hsl(${Math.random() * 360}, 70%, 50%)`,
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                width: `${Math.random() * 400 + 200}px`,
+                height: `${Math.random() * 400 + 200}px`,
+                animationDelay: `${Math.random() * 10}s`,
+                transform: `translate(${mousePosition.x * (i + 1)}px, ${mousePosition.y * (i + 1)}px)`,
+              }}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className={`relative z-10 max-w-6xl mx-auto min-h-screen flex flex-col 
+                      justify-center items-center text-center transition-all duration-1000 
+                      ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        
+        {/* Profile Image with Enhanced Effects */}
+        <div className="relative mb-8 group perspective-1000">
+          <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-teal-500 
+                         rounded-full blur-xl opacity-75 group-hover:opacity-100 
+                         group-hover:scale-110 transition-all duration-500"></div>
+          <div className="relative transform transition-all duration-500 
+                         group-hover:rotate-y-180 preserve-3d">
+            <img 
+              src="/api/placeholder/150/150"
+              alt="Profile Front"
+              className="relative w-32 h-32 rounded-full border-4 border-white/10 
+                        shadow-lg object-cover backface-hidden"
+            />
+            <div className="absolute inset-0 w-32 h-32 rounded-full border-4 
+                           border-white/10 shadow-lg backface-hidden rotate-y-180 
+                           bg-gradient-to-r from-emerald-400 to-teal-500 
+                           flex items-center justify-center text-white font-bold">
+              Hello! 👋
+            </div>
+          </div>
+        </div>
+
+        {/* Animated Title */}
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 relative">
+          <span className="bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent">
+            {typewriterText.split('').map((char, index) => (
+              <span
+                key={index}
+                className={`inline-block animate-fade-in opacity-0`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {char}
+              </span>
+            ))}
+          </span>
+        </h1>
+        
+        {/* Enhanced Description */}
+        <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-8 leading-relaxed 
+                     animate-slide-up opacity-0" 
+           style={{ animationDelay: '1s', animationFillMode: 'forwards' }}>
+          I'm a passionate Web Developer specializing in creating beautiful, responsive websites 
+          using modern technologies like React, TailwindCSS, and Next.js.
+        </p>
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12 w-full max-w-4xl">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="group p-4 rounded-xl bg-white/5 backdrop-blur-sm hover:bg-white/10 
+                        transform hover:-translate-y-2 transition-all duration-300"
+              style={{ animationDelay: `${1.5 + index * 0.2}s` }}
+            >
+              <div className={`w-12 h-12 mx-auto mb-3 rounded-lg bg-gradient-to-r ${service.color} 
+                              flex items-center justify-center transform group-hover:scale-110 
+                              transition-transform duration-300`}>
+                <service.icon size={24} />
+              </div>
+              <h3 className="text-lg font-semibold">{service.title}</h3>
+            </div>
+          ))}
+        </div>
+
+        {/* Enhanced CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 mb-12">
+          <button className="group px-8 py-3 bg-gradient-to-r from-emerald-400 to-teal-500 
+                           rounded-lg font-semibold text-white shadow-lg overflow-hidden 
+                           relative transform hover:-translate-y-1 transition-all duration-300">
+            <span className="relative z-10">View Projects</span>
+            <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 
+                           transform translate-y-full group-hover:translate-y-0 
+                           transition-all duration-300"></div>
+          </button>
+          <button className="group px-8 py-3 bg-white/10 rounded-lg font-semibold 
+                           backdrop-blur-sm relative overflow-hidden transform 
+                           hover:-translate-y-1 transition-all duration-300 
+                           border border-white/10">
+            <span className="relative z-10">Contact Me</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 
+                           to-teal-500/20 opacity-0 group-hover:opacity-100 
+                           transform -translate-x-full group-hover:translate-x-0 
+                           transition-all duration-300"></div>
+          </button>
+        </div>
+
+        {/* Enhanced Social Links */}
+        <div className="flex gap-6 mb-12">
+          {socialLinks.map((social, index) => (
+            <a
+              key={index}
+              href={social.url}
+              className={`text-gray-400 ${social.color} transform hover:-translate-y-1 
+                         hover:scale-110 transition-all duration-300`}
+              aria-label={social.label}
+            >
+              <social.icon size={24} className="animate-bounce-light" 
+                          style={{ animationDelay: `${index * 0.2}s` }} />
+            </a>
+          ))}
+        </div>
+
+        {/* Enhanced Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 
+                        animate-float text-gray-400 cursor-pointer 
+                        hover:text-emerald-400 transition-colors duration-300">
+          <FaArrowDown size={24} className="animate-pulse" />
+        </div>
+      </div>
+
+      {/* Enhanced Tech Stack */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t 
+                      from-slate-900 to-transparent">
+        <div className="h-full flex items-end justify-center pb-4 overflow-hidden">
+          <div className="flex gap-8 text-gray-400 text-sm animate-scroll">
+            {[...Array(2)].map((_, i) => (
+              <div key={i} className="flex gap-8">
+                <span className="hover:text-emerald-400 transition-colors duration-300">React</span>
+                <span>•</span>
+                <span className="hover:text-emerald-400 transition-colors duration-300">TailwindCSS</span>
+                <span>•</span>
+                <span className="hover:text-emerald-400 transition-colors duration-300">Next.js</span>
+                <span>•</span>
+                <span className="hover:text-emerald-400 transition-colors duration-300">TypeScript</span>
+                <span>•</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
+
+// Add these keyframes to your global CSS
+/*
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes bounce-light {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(20px, -20px) scale(1.1); }
+  50% { transform: translate(-20px, 20px) scale(0.9); }
+  75% { transform: translate(20px, 20px) scale(1.1); }
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-bounce-light {
+  animation: bounce-light 2s ease-in-out infinite;
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+*/
