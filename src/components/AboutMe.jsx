@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { FaCode, FaLaptopCode, FaServer, FaUserGraduate, FaCertificate, 
-        FaTwitter, FaFacebookF, FaLinkedinIn, FaInstagram, FaGithub,
+        FaLinkedinIn, FaInstagram, FaGithub,
         FaDownload, FaEnvelope, FaMapMarkerAlt, FaPhone, FaLanguage,
-        FaBrain, FaUser } from 'react-icons/fa';
+        FaBrain, FaUser, FaRocket } from 'react-icons/fa';
 
 const AboutMe = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -21,18 +21,14 @@ const AboutMe = () => {
   }, []);
 
   const skills = [
-    { name: 'Frontend Development', icon: FaCode, progress: 90, 
-      details: 'React, Vue.js, Next.js, TailwindCSS' },
-    { name: 'Backend Development', icon: FaServer, progress: 85, 
-      details: 'Node.js, Python, Java, MongoDB' },
-    { name: 'UI/UX Design', icon: FaLaptopCode, progress: 75, 
-      details: 'Figma, Adobe XD, Responsive Design' },
+    { name: 'Frontend Development', icon: FaCode, details: 'React, Vue.js, Next.js, TailwindCSS' },
+    { name: 'Backend Development', icon: FaServer, details: 'Node.js, Python, Java, MongoDB' },
+    { name: 'UI/UX Design', icon: FaLaptopCode, details: 'Figma, Adobe XD, Responsive Design' },
     // { name: 'DevOps', icon: FaTools, progress: 80, 
     //   details: 'Docker, AWS, CI/CD, Git' },
     // { name: 'Mobile Development', icon: FaPalette, progress: 70, 
     //   details: 'React Native, Flutter' },
-    { name: 'Problem Solving', icon: FaBrain, progress: 95, 
-      details: 'Algorithms, Data Structures' },
+    { name: 'Problem Solving', icon: FaBrain, details: 'Algorithms, Data Structures' },
   ];
 
   const milestones = [
@@ -50,13 +46,13 @@ const AboutMe = () => {
       year: '2024',
       details: 'Advanced Web Development'
     },
-    // { 
-    //   icon: FaRocket, 
-    //   title: 'Experience',
-    //   desc: 'Full Stack Developer',
-    //   year: '2022-Present',
-    //   details: 'Leading Web Development Projects'
-    // }
+    { 
+      icon: FaRocket, 
+      title: 'Experience',
+      desc: 'Frontend Developer Intern at Roabix',
+      year: '2025-Present',
+      details: 'Working on Problem Solving Projects and gaining knowledge too'
+    }
   ];
 
   const personalInfo = {
@@ -74,28 +70,9 @@ const AboutMe = () => {
       className="relative min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 
                 text-white overflow-hidden py-20 px-4"
     >
-      {/* Animated Background
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(5)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full mix-blend-screen filter blur-xl opacity-20 animate-blob"
-            style={{
-              backgroundColor: `hsl(${i * 60}, 70%, 50%)`,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              width: `${Math.random() * 400 + 200}px`,
-              height: `${Math.random() * 400 + 200}px`,
-              animationDelay: `${i * 2}s`,
-            }}
-          />
-        ))}
-      </div> */}
-
       <div className={`relative container mx-auto max-w-6xl transition-all duration-1000 
         ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-
-        {/* Header Section with Animated Title */}
+        
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             {['About', 'Me'].map((word, i) => (
@@ -124,7 +101,6 @@ const AboutMe = () => {
           </p>
         </div>
 
-        {/* Tab Navigation */}
         <div className="flex justify-center mb-12 space-x-4">
           {['professional', 'personal', 'skills'].map((tab) => (
             <button
@@ -140,9 +116,7 @@ const AboutMe = () => {
           ))}
         </div>
 
-        {/* Dynamic Content Based on Active Tab */}
         <div className="transition-all duration-500">
-          {/* Professional Tab */}
           <div className={`${activeTab === 'professional' ? 'block' : 'hidden'}`}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {milestones.map((milestone, index) => (
@@ -169,10 +143,8 @@ const AboutMe = () => {
             </div>
           </div>
 
-          {/* Personal Tab */}
           <div className={`${activeTab === 'personal' ? 'block' : 'hidden'}`}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Personal Info */}
               <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6">
                 <h3 className="text-2xl font-semibold mb-6 text-emerald-400">Contact Details</h3>
                 <ul className="space-y-4">
@@ -195,7 +167,6 @@ const AboutMe = () => {
                 </ul>
               </div>
 
-              {/* Languages & Hobbies */}
               <div className="space-y-8">
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6">
                   <h3 className="text-2xl font-semibold mb-4 text-emerald-400">
@@ -229,7 +200,6 @@ const AboutMe = () => {
             </div>
           </div>
 
-          {/* Skills Tab */}
           <div className={`${activeTab === 'skills' ? 'block' : 'hidden'}`}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {skills.map((skill, index) => (
@@ -246,22 +216,7 @@ const AboutMe = () => {
                                         transform group-hover:rotate-12 transition-transform duration-300" />
                     <h3 className="text-xl font-semibold">{skill.name}</h3>
                   </div>
-                  
-                  <div className="relative h-2 bg-white/10 rounded-full overflow-hidden mb-2">
-                    <div 
-                      className="h-full bg-gradient-to-r from-emerald-400 to-teal-500 
-                              transform origin-left transition-transform duration-1000 ease-out"
-                      style={{ 
-                        transform: isVisible ? `scaleX(${skill.progress / 100})` : 'scaleX(0)'
-                      }}
-                    />
-                  </div>
-                  
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-400">{skill.details}</span>
-                    <span className="text-emerald-400">{skill.progress}%</span>
-                  </div>
-                  
+                  <div className="text-sm text-gray-400">{skill.details}</div>
                   {hoveredSkill === index && (
                     <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/5 to-teal-500/5 
                                   rounded-xl animate-pulse" />
@@ -272,22 +227,21 @@ const AboutMe = () => {
           </div>
         </div>
 
-        {/* Social Links & CTA */}
         <div className="mt-16 flex flex-col md:flex-row items-center justify-between 
-                       bg-white/5 backdrop-blur-sm rounded-xl p-6">
+                      bg-white/5 backdrop-blur-sm rounded-xl p-6">
           <div className="flex space-x-6 mb-6 md:mb-0">
             {[ 
-              { icon: FaTwitter, url: '#', color: 'hover:text-blue-400' },
-              { icon: FaFacebookF, url: '#', color: 'hover:text-blue-600' },
+              // { icon: FaTwitter, url: '#', color: 'hover:text-blue-400' },
+              // { icon: FaFacebookF, url: '#', color: 'hover:text-blue-600' },
               { icon: FaLinkedinIn, url: '#', color: 'hover:text-blue-500' },
-              { icon: FaInstagram, url: '#', color: 'hover:text-pink-500' },
-              { icon: FaGithub, url: '#', color: 'hover:text-purple-400' }
+              { icon: FaInstagram, url: 'https://www.instagram.com/varun.vangari/', color: 'hover:text-pink-500' },
+              { icon: FaGithub, url: 'https://github.com/varun7537', color: 'hover:text-purple-400' }
             ].map((social, index) => (
               <a
                 key={index}
                 href={social.url}
                 className={`text-2xl text-gray-400 transform hover:-translate-y-1 
-                           transition-all duration-300 ${social.color}`}
+                          transition-all duration-300 ${social.color}`}
               >
                 <social.icon />
               </a>
@@ -296,9 +250,9 @@ const AboutMe = () => {
 
           <div className="flex space-x-4">
             <button className="px-6 py-3 bg-gradient-to-r from-emerald-400 to-teal-500 
-                             rounded-lg font-semibold text-white shadow-lg overflow-hidden 
-                             relative transform hover:-translate-y-1 transition-all duration-300 
-                             group">
+                            rounded-lg font-semibold text-white shadow-lg overflow-hidden 
+                            relative transform hover:-translate-y-1 transition-all duration-300 
+                            group">
               <span className="relative z-10 flex items-center">
                 <FaDownload className="mr-2" />
                 Download CV

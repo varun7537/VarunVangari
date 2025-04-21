@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 import { FaHome, FaUser, FaProjectDiagram, FaBlog, FaEnvelope, FaBars, 
         FaTimes, FaGraduationCap, FaCertificate, FaTools } from 'react-icons/fa';
 
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    const location = useLocation();
 
     // Handle scroll effect
     useEffect(() => {
@@ -17,20 +16,9 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Close mobile menu when clicking outside
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (isMobileMenuOpen && !event.target.closest('nav')) {
-                setIsMobileMenuOpen(false);
-            }
-        };
-        document.addEventListener('click', handleClickOutside);
-        return () => document.removeEventListener('click', handleClickOutside);
-    }, [isMobileMenuOpen]);
-
     // Determine active link
     const isActive = (path) => {
-        return location.pathname === path 
+        return window.location.hash === `#${path}` 
             ? 'text-emerald-400 border-b-2 border-emerald-400' 
             : 'hover:text-emerald-400 hover:scale-105 transform transition-all';
     };
@@ -41,14 +29,14 @@ const Navbar = () => {
         : 'bg-slate-900 py-4'}`;
 
     const menuItems = [
-        { path: '/', icon: FaHome, label: 'Home' },
-        { path: '/aboutme-section', icon: FaUser, label: 'About' },
-        { path: '/education', icon: FaGraduationCap, label: 'Education' },
-        { path: '/skills-section', icon: FaTools, label: 'Skills' },
-        { path: '/certifications-section', icon: FaCertificate, label: 'Certifications' },
-        { path: '/projects-section', icon: FaProjectDiagram, label: 'Projects' },
-        { path: '/blog-section', icon: FaBlog, label: 'Blog' },
-        { path: '/contact-section', icon: FaEnvelope, label: 'Contact' }
+        { path: 'home-section', icon: FaHome, label: 'Home' },
+        { path: 'aboutme-section', icon: FaUser, label: 'About' },
+        { path: 'education-section', icon: FaGraduationCap, label: 'Education' },
+        { path: 'skills-section', icon: FaTools, label: 'Skills' },
+        { path: 'certifications-section', icon: FaCertificate, label: 'Certifications' },
+        { path: 'projects-section', icon: FaProjectDiagram, label: 'Projects' },
+        { path: 'blog-section', icon: FaBlog, label: 'Blog' },
+        { path: 'contactme-section', icon: FaEnvelope, label: 'Contact' }
     ];
 
     return (
@@ -56,13 +44,13 @@ const Navbar = () => {
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center">
                     {/* Logo */}
-                    <Link to="/" className="group">
+                    <ScrollLink to="home-section" smooth={true} duration={500}>
                         <div className="relative">
                             <span className="text-3xl md:text-4xl font-bold text-emerald-400 group-hover:text-white transition-all duration-300">
                                 Varun Vangari
                             </span>
                         </div>
-                    </Link>
+                    </ScrollLink>
 
                     {/* Mobile Menu Button */}
                     <button
@@ -79,15 +67,17 @@ const Navbar = () => {
                     {/* Desktop Menu */}
                     <div className="hidden lg:flex items-center space-x-1">
                         {menuItems.map((item) => (
-                            <Link
+                            <ScrollLink
                                 key={item.path}
                                 to={item.path}
+                                smooth={true}
+                                duration={500}
                                 className={`flex items-center space-x-1 px-3 py-2 rounded-lg text-white
                                             transition-all duration-300 ${isActive(item.path)}`}
                             >
                                 <item.icon className="text-lg" />
                                 <span>{item.label}</span>
-                            </Link>
+                            </ScrollLink>
                         ))}
                     </div>
                 </div>
@@ -103,9 +93,11 @@ const Navbar = () => {
                 >
                     <div className="container mx-auto px-4 py-3">
                         {menuItems.map((item) => (
-                            <Link
+                            <ScrollLink
                                 key={item.path}
                                 to={item.path}
+                                smooth={true}
+                                duration={500}
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 className={`flex items-center space-x-2 px-4 py-3 text-white rounded-lg
                                         transition-all duration-300 ${isActive(item.path)}
@@ -113,7 +105,7 @@ const Navbar = () => {
                             >
                                 <item.icon className="text-lg" />
                                 <span>{item.label}</span>
-                            </Link>
+                            </ScrollLink>
                         ))}
                     </div>
                 </div>

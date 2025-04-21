@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaGithub, FaLinkedin, FaTwitter, FaArrowDown } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram, FaArrowDown } from 'react-icons/fa';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,11 +11,11 @@ const HeroSection = () => {
   const socialLinks = [
     { icon: FaGithub, url: 'https://github.com/varun7537', label: 'GitHub' },
     { icon: FaLinkedin, url: 'https://www.linkedin.com/in/varun-vangari-092895277/', label: 'LinkedIn' },
-    { icon: FaTwitter, url: '#', label: 'Twitter' },
+    { icon: FaInstagram, url: 'https://www.instagram.com/varun.vangari/', label: 'Instagram' },
   ];
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden px-4">
+    <section id="home-section" className="relative min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden px-4">
       {/* Background Animation */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-96 h-96 -top-10 -left-10 bg-emerald-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -28,13 +28,13 @@ const HeroSection = () => {
                       ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         
         {/* Profile Image */}
-        <div className="relative mb-8 group">
+        <div className="relative mb-10 group">
           <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-teal-500 
                 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity"></div>
           <img 
-            src="https://media.istockphoto.com/id/907865186/photo/handsome-man.jpg?s=1024x1024&w=is&k=20&c=2MkK4OvKoiGHFBn-n_mXx01jo-V0u4z_nMW3HSOfrFM="
+            src="/ProfilePhoto.jpg"
             alt="Profile"
-            className="relative w-48 h-48 rounded-full border-4 border-white/10 
+            className="relative w-56 h-56 rounded-full border-4 border-white/10 
                       shadow-lg object-cover transform transition-transform duration-500 
                       group-hover:scale-105"
           />
@@ -58,12 +58,12 @@ const HeroSection = () => {
               rounded-lg font-semibold text-white shadow-lg 
               hover:shadow-emerald-500/25 transform hover:-translate-y-1 
               transition-all duration-300">
-            View Projects
+              <a href="#projects-section" className="text-white">View Projects</a>
           </button>
           <button className="px-8 py-3 bg-white/10 rounded-lg font-semibold 
               backdrop-blur-sm hover:bg-white/20 transform hover:-translate-y-1 
               transition-all duration-300 border border-white/10">
-            Contact Me
+            <a href="#contactme-section" className="text-white">Contact Me</a>
           </button>
         </div>
 

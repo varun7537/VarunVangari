@@ -26,56 +26,61 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce solution with real-time inventory management and secure payment processing.',
-      image: 'https://imgcdn.stablediffusionweb.com/2025/1/22/486c6b6e-72ec-49ec-b619-f8ff4e2e1edc.jpg',
+      title: 'Paradise Nursery Shopping Website',
+      description: 'An e-commerce platform for purchasing plants, gardening supplies, and accessories with a user-friendly interface and secure payment system.',
+      image: 'paradise-nursery-shopping.jpg',
       category: 'fullstack',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+      technologies: ['ReactJS', 'NodeJS', 'MongoDB', 'Stripe', 'ExpressJS'],
       demoUrl: '#',
       githubUrl: '#',
       features: [
-        'User authentication',
-        'Payment integration',
-        'Real-time inventory',
-        'Admin dashboard'
+        'Plant and product catalog',
+        'Secure payment processing',
+        'User accounts and order history',
+        'Shopping cart functionality',
+        'Admin panel for product management',
+        'Real-time stock updates'
       ]
-    },
+    },    
     {
-      title: 'Social Media Dashboard',
-      description: 'Analytics dashboard for social media metrics with real-time data visualization.',
-      image: 'https://imgcdn.stablediffusionweb.com/2025/1/22/56a61ad1-0dd9-4ba6-a832-68c212c5a070.jpg',
-      category: 'frontend',
-      technologies: ['React', 'TailwindCSS', 'Chart.js', 'Firebase'],
-      demoUrl: '#',
-      githubUrl: '#',
-      features: [
-        'Real-time updates',
-        'Interactive charts',
-        'Custom analytics',
-        'Export reports'
+      "title": "Movie Database App",
+      "description": "A movie search app where you can find all the movies you can think of. Users can search, explore, and get detailed information about movies, including ratings, release dates, and more.",
+      "image": "movie-database-app.jpg",
+      "category": "developed",
+      "technologies": ["AngularJS", "CSS", "JavaScript", "OMDb API"],
+      "demoUrl": "https://github.com/varun7537/Movie-Database.git",
+      "githubUrl": "https://github.com/varun7537/Movie-Database.git",
+      "features": [
+        "Search movies by title, genre, or actor",
+        "View detailed information including ratings, release date, and plot",
+        "Responsive design for all devices",
+        "Real-time movie data updates using OMDb API",
+        "Save favorite movies to a watchlist",
+        "User-friendly navigation and interface"
       ]
-    },
+    },    
     {
-      title: 'Mobile Fitness App',
-      description: 'Cross-platform mobile application for fitness tracking and workout planning.',
-      image: 'https://imgcdn.stablediffusionweb.com/2025/1/23/efb99d56-d83b-469c-acae-a303d0695673.jpg',
-      category: 'mobile',
-      technologies: ['React Native', 'Redux', 'Node.js', 'MongoDB'],
-      demoUrl: '#',
-      githubUrl: '#',
-      features: [
-        'Workout tracking',
-        'Progress charts',
-        'Nutrition planning',
-        'Social sharing'
+      "title": "Expense Tracker App",
+      "description": "A simple and intuitive expense tracker app that helps users manage their personal finances by tracking income and expenses. It provides visualizations to help users see their spending habits and stay within their budget.",
+      "image": "expense-tracker-app.jpg",
+      "category": "developed",
+      "technologies": ["AngularJS", "CSS", "JavaScript"],
+      "demoUrl": "https://github.com/varun7537/Expense-Tracker-App.git",
+      "githubUrl": "https://github.com/varun7537/Expense-Tracker-App.git",
+      "features": [
+        "Track income and expenses",
+        "Add and categorize expenses",
+        "Set monthly budget goals",
+        "View transaction history",
+        "Responsive design for mobile and desktop"
       ]
     },
     {
       title: 'AI Chat Assistant',
       description: 'Intelligent chatbot powered by machine learning for customer support.',
-      image: 'https://imgcdn.stablediffusionweb.com/2025/1/22/fac74531-7e96-47e9-aa0f-bf72535fa35d.jpg',
+      image: 'ai-chat-assistant.jpg',
       category: 'ai',
-      technologies: ['Python', 'TensorFlow', 'FastAPI', 'React'],
+      technologies: ['Python', 'Flask', 'FastAPI', 'React'],
       demoUrl: '#',
       githubUrl: '#',
       features: [
@@ -89,9 +94,9 @@ const Projects = () => {
 
   const categories = [
     { id: 'all', label: 'All Projects' },
-    { id: 'frontend', label: 'Frontend' },
+    { id: 'developed', label: 'Developed' },
     { id: 'fullstack', label: 'Full Stack' },
-    { id: 'mobile', label: 'Mobile' },
+    { id: 'design', label: 'Design' },
     { id: 'ai', label: 'AI/ML' }
   ];
 

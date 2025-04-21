@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FaMedal, FaTrophy, FaCertificate, FaUniversity, 
+import { FaMedal, FaTrophy, FaCertificate, 
         FaUserGraduate, FaAward } from 'react-icons/fa';
 
 const Education = () => {
@@ -28,28 +28,26 @@ const Education = () => {
   }, []);
 
   const educationData = [
-    {
-      title: 'Masters Degree',
-      institution: 'Aditya Institute of Management Studies and Research',
-      period: '2024 - present',
-      description: 'NA',
-      achievements: [
-        'NA',
-        'NA',
-        'NA'
-      ],
-      icon: FaUniversity,
-      grade: '0.0 GPA',
-      skills: ['NA'],
-      certifications: ['NA']
-    },
+    // {
+    //   title: 'Masters Degree',
+    //   institution: 'Aditya Institute of Management Studies and Research',
+    //   period: '2024 - present',
+    //   description: '-',
+    //   achievements: [
+    //     '-'
+    //   ],
+    //   icon: FaUniversity,
+    //   grade: '0.0 GPA',
+    //   skills: ['-'],
+    //   certifications: ['-']
+    // },
     {
       title: 'Bachelors Degree',
       institution: 'South Indian Education Society',
       period: '2021 - 2024',
       description: 'Computer Science major with minor in Data Science.',
       achievements: [
-        'NA'
+        '-'
       ],
       icon: FaUserGraduate,
       grade: '6.75 CGPA',
@@ -60,16 +58,14 @@ const Education = () => {
       title: 'HSC (11, 12th Examination)',
       institution: 'Rao Junior College of Science',
       period: '2019 - 2021',
-      description: 'Science stream with focus on Computer Science and Mathematics.',
+      description: 'Science stream with focus on Computer Science',
       achievements: [
-        'State level Mathematics Olympiad Winner',
-        'Science Exhibition First Prize',
-        'Perfect score in Computer Science'
+        '-'
       ],
       icon: FaMedal,
-      grade: '95%',
-      skills: ['Mathematics', 'Physics', 'Computer Science'],
-      certifications: ['Python Programming', 'Web Development Basics']
+      grade: '85.50%',
+      skills: ['Web Design'],
+      certifications: ['-']
     },
     {
       title: 'SSC (10th Examination)',
@@ -81,8 +77,8 @@ const Education = () => {
       ],
       icon: FaTrophy,
       grade: '58.80%',
-      skills: ['Mathematics', 'Science', 'Leadership'],
-      certifications: ['Basic Programming']
+      skills: ['Sports', 'Leadership'],
+      certifications: ['State Level Kudo & KickBoxing']
     }
   ];
 
@@ -90,7 +86,7 @@ const Education = () => {
     <section
       ref={educationRef}
       className="relative min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white py-20 px-4 overflow-hidden"
-    id="education">
+    id="education-section">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-96 h-96 -top-10 -left-10 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>

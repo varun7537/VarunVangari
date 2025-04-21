@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaFacebook, FaTwitter, FaLinkedin, FaGithub, FaArrowUp, 
          FaEnvelope, FaMapMarkerAlt, FaPhone, FaHeart, 
-         FaInstagram, FaDribbble } from 'react-icons/fa';
+         FaInstagram, FaDiscord } from 'react-icons/fa';
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -30,7 +30,7 @@ const Footer = () => {
     { icon: FaLinkedin, url: '#', label: 'LinkedIn', color: 'hover:text-blue-400' },
     { icon: FaTwitter, url: '#', label: 'Twitter', color: 'hover:text-sky-400' },
     { icon: FaInstagram, url: '#', label: 'Instagram', color: 'hover:text-pink-400' },
-    { icon: FaDribbble, url: '#', label: 'Dribbble', color: 'hover:text-rose-400' },
+    { icon: FaDiscord, url: '#', label: 'Discord', color: 'hover:text-rose-400' },
     { icon: FaFacebook, url: '#', label: 'Facebook', color: 'hover:text-blue-500' },
   ];
 
@@ -57,7 +57,7 @@ const Footer = () => {
           {/* About Section */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent">
-              MyPortfolio
+              VarunVangari
             </h3>
             <p className="text-gray-400 leading-relaxed">
               Creating beautiful digital experiences with modern technologies and innovative designs.
@@ -66,14 +66,14 @@ const Footer = () => {
             <div className="space-y-2">
               <a href="mailto:contact@example.com" 
                  className="flex items-center text-gray-400 hover:text-emerald-400 transition-colors duration-300">
-                <FaEnvelope className="mr-2" /> contact@example.com
+                <FaEnvelope className="mr-2" /> varunvangari29@gmail.com
               </a>
               <a href="tel:+1234567890" 
                  className="flex items-center text-gray-400 hover:text-emerald-400 transition-colors duration-300">
-                <FaPhone className="mr-2" /> +1 (234) 567-890
+                <FaPhone className="mr-2" /> 8104597116
               </a>
               <p className="flex items-center text-gray-400">
-                <FaMapMarkerAlt className="mr-2" /> New York, NY 10012
+                <FaMapMarkerAlt className="mr-2" /> Maharashtra, Mumbai, 400022
               </p>
             </div>
           </div>
@@ -142,7 +142,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
           <p>
-            © {year} MyPortfolio. All Rights Reserved.
+            © {year} VarunVangari. All Rights Reserved.
           </p>
           <p className="flex items-center mt-2 md:mt-0">
             Designed & Developed with 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaSpinner, FaPaperPlane, FaCheckCircle, FaExclamationCircle, 
         FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, 
-        FaTwitter, FaClock } from 'react-icons/fa';
+        FaInstagram, FaClock } from 'react-icons/fa';
 
 const ContactMe = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -30,7 +30,7 @@ const ContactMe = () => {
       { threshold: 0.1 }
     );
 
-    const section = document.getElementById('contact-section');
+    const section = document.getElementById('contactme-section');
     if (section) observer.observe(section);
 
     return () => {
@@ -80,7 +80,10 @@ const ContactMe = () => {
     setSubmitStatus(null);
 
     try {
+      // Here, you would typically send the form data to your backend or an API
+      // Replace the following line with actual API call:
       await new Promise(resolve => setTimeout(resolve, 2000));
+
       setSubmitStatus('success');
       setFormData({
         fname: '',
@@ -99,25 +102,24 @@ const ContactMe = () => {
   };
 
   const contactInfo = [
-    { icon: FaPhone, title: 'Phone', content: '+1 234 567 890', link: 'tel:+1234567890' },
-    { icon: FaEnvelope, title: 'Email', content: 'contact@example.com', link: 'mailto:contact@example.com' },
-    { icon: FaMapMarkerAlt, title: 'Address', content: '123 Developer Street, Code City, 12345' },
+    { icon: FaPhone, title: 'Phone', content: '8104597116'},
+    { icon: FaEnvelope, title: 'Email', content: 'varunvangari29@gmail.com'},
+    { icon: FaMapMarkerAlt, title: 'Address', content: 'Sion Koliwada, Pratiksha Nagar, Mumbai, 400022' },
     { icon: FaClock, title: 'Working Hours', content: 'Mon - Fri: 9AM - 6PM' }
   ];
 
   const socialLinks = [
-    { icon: FaLinkedin, url: '#', color: 'hover:bg-blue-600' },
-    { icon: FaGithub, url: '#', color: 'hover:bg-gray-800' },
-    { icon: FaTwitter, url: '#', color: 'hover:bg-sky-500' }
+    { icon: FaLinkedin, url: 'https://www.linkedin.com/in/varun-vangari-092895277/', color: 'hover:bg-blue-600' },
+    { icon: FaGithub, url: 'https://github.com/varun7537', color: 'hover:bg-gray-800' },
+    { icon: FaInstagram, url: 'https://www.instagram.com/varun.vangari/', color: 'hover:bg-sky-500' }
   ];
 
   return (
     <section 
-      id="contact-section"
+      id="contactme-section"
       className="relative min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 
                 text-white py-20 px-4 overflow-hidden"
     >
-      {/* Background Animation */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-96 h-96 -top-10 -left-10 bg-emerald-500/10 rounded-full 
                       blur-3xl animate-pulse"></div>
@@ -127,8 +129,7 @@ const ContactMe = () => {
 
       <div className={`relative container mx-auto max-w-6xl transition-all duration-1000 
                       ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        
-        {/* Header Section */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -145,7 +146,6 @@ const ContactMe = () => {
           </p>
         </motion.div>
 
-        {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           {/* Contact Information */}
           <motion.div
@@ -220,8 +220,7 @@ const ContactMe = () => {
                       onChange={handleChange}
                       className={`w-full p-3 bg-white/10 border border-white/20 rounded-lg 
                               text-white placeholder-gray-400 transition-all duration-300
-                              ${errors[field] ? 'border-red-500' : 'focus:border-emerald-500'}
-                              focus:outline-none focus:ring-2 focus:ring-emerald-500/50`}
+                              ${errors[field] ? 'border-red-500' : 'focus:border-emerald-500'}`}
                       placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
                     />
                     <AnimatePresence>
@@ -248,8 +247,7 @@ const ContactMe = () => {
                   onChange={handleChange}
                   className={`w-full p-3 bg-white/10 border border-white/20 rounded-lg 
                           text-white placeholder-gray-400 transition-all duration-300
-                          ${errors.subject ? 'border-red-500' : 'focus:border-emerald-500'}
-                          focus:outline-none focus:ring-2 focus:ring-emerald-500/50`}
+                          ${errors.subject ? 'border-red-500' : 'focus:border-emerald-500'}`}
                   placeholder="Subject"
                 />
                 <AnimatePresence>
@@ -274,8 +272,7 @@ const ContactMe = () => {
                   rows="5"
                   className={`w-full p-3 bg-white/10 border border-white/20 rounded-lg 
                           text-white placeholder-gray-400 transition-all duration-300
-                          ${errors.message ? 'border-red-500' : 'focus:border-emerald-500'}
-                          focus:outline-none focus:ring-2 focus:ring-emerald-500/50`}
+                          ${errors.message ? 'border-red-500' : 'focus:border-emerald-500'}`}
                   placeholder="Your Message"
                 />
                 <div className="flex justify-between mt-1">
