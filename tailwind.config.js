@@ -7,5 +7,5 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-  base: process.env.BASE_PATH || "/portfolio-website",
+  base: process.env.BASE_PATH || "/VarunVangari",
 }

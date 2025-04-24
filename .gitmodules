@@ -1,0 +1,3 @@
+[submodule "VarunVangari-PortfolioWebsite/frontend"]
+    path = VarunVangari-PortfolioWebsite/frontend
+    url = https://github.com/varun7537/VarunVangari.git
